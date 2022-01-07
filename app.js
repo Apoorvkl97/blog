@@ -4,9 +4,11 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
 const mongoose = require('mongoose');
+const dotenv = require('dotenv').config();
 
-
-mongoose.connect("mongodb+srv://admin-apoorv:apoorv@cluster0.nl88l.mongodb.net/blogDB?retryWrites=true&w=majority",{ useUnifiedTopology: true,useNewUrlParser: true });
+const username = process.env.DB_USERNAME;
+const password = process.env.DB_PASSWORD;
+mongoose.connect(`mongodb+srv://${username}:${password}@cluster0.nl88l.mongodb.net/blogDB?retryWrites=true&w=majority`,{ useUnifiedTopology: true,useNewUrlParser: true });
 
 const postSchema = {
   title : String,
