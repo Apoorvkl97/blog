@@ -3,17 +3,17 @@
     <h1>Home</h1>
     <p style="white-space: pre-wrap;"> <%= startingContent %> </p>
 
-
+<div style="display:flex;flex-wrap: wrap;justify-content: space-evenly;">
   <%  posts.forEach(function(post){ %>
-
+<div class="postCard">
     <h1><%=post.title%></h1>
     <p>
     <%=post.content.substring(0, 100) + " ..."%>
     <a href="/posts/<%=post._id%>">Read More</a>
     </p>
-
+  </div>
 
     <% }) %>
-
+  </div>
 
 <%- include("partials/footer"); -%>
